@@ -21,7 +21,7 @@ var lettersguessed = new Array;
 
 var directionstext = document.getElementById("directionstext");
 var chosenwordtext = document.getElementById("chosenwordtext");
-var guessagintext = document.getElementById("guessagaintext");
+var guessagaintext = document.getElementById("guessagaintext");
 var currentguesstext = document.getElementById("userguesstext");
 var previousguessestext = document.getElementById("previousguessestext");
 var guesseslefttext = document.getElementById("guesseslefttext");
@@ -33,9 +33,13 @@ var numberoflossestext = document.getElementById("numberoflossestext");
 var chosenword = wordarray[Math.floor(Math.random() * wordarray.length)];
     //word gets logged in console, make this a comment when finisheds
 var hangmanArray = new Array(chosenword.length);
+    //creates array of underscores for word
 var guessesleft = chosenword.length * 2;
+    //sets maximum number of guesses available (twice the number of letters in the word)
 guesseslefttext.textContent = "You have " + guessesleft + " guesses remaining!!";
+    //prints number of guess left to DOM
 console.log(chosenword);
+    //word chosen from array goes into console log
 
 //setting up the array for the underscores of the answer word to be filled in
 var hangmanArray = [];
@@ -54,6 +58,28 @@ var lettersremaining = hangmanArray.length;
 document.onkeyup = function() {
     var userguess = event.key;
     //confirm that user only entered 1 key and it was a letter
-    if (userguess = userguess.length === 1 && userguess.match(/[a-z]/i));
-        console.log(userguess);    
+    if (userguess = userguess.length === 1 && userguess.match(/[a-z]/i)) {
+        console.log(userguess);
+        currentguesstext.textContent = "Your guess is " + userguess;
+        lettersguessed.push(userguess);
+        //guessesleft--;
+        previousguessestext.textContent = "You have already guessed: " + lettersguessed;
+        //alert("Now that you have guessed " + userguess + ", guess a different letter.");
+    } else {
+        var letterinword = false;
+        var j = 0;
+    } 
+    while (letterinword == false && j < hangmanArray.length) {
+        if (userguess == hangmanArray[j]) {
+            letterinword = true;
+        }
+        j++;
+    }
+    if (letterinword == true) {
+        for (var k = 0; k < chosenword.length; k++) {
+            if (userguess == chosenword[k]) {
+                hangmanArray[k] = userguess;
+            }
+        }
+    }
 }
