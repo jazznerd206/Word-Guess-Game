@@ -69,13 +69,13 @@ document.onkeyup = function() {
         var letterinword = false;
         var j = 0;
     } 
-    while (letterinword == false && j < hangmanArray.length) {
-        if (userguess == hangmanArray[j]) {
+    while (letterinword == false && j < chosenword.length) {
+        if (userguess == chosenword[j]) {
             letterinword = true;
         }
         j++;
     }
-    if (letterinword == true) {
+    if (letterinword) {
         for (var k = 0; k < chosenword.length; k++) {
             if (userguess == chosenword[k]) {
                 hangmanArray[k] = userguess;
