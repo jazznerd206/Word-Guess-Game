@@ -86,5 +86,6 @@ document.onkeyup = function(event) {
     guesseslefttext.textContent = guessesleft
     chosenwordtext.textContent = hangmanArray;
     previousguessestext.textContent = lettersguessed;
+    currentguesstext.textContent = userguess;
     }
 }
