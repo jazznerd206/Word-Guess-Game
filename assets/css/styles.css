@@ -1,0 +1,14 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.messages {
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.jumbotron {
+    background: url(../image/wideflame.gif);
+    height: 275px;
+    color: orangered;
+}
