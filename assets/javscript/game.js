@@ -94,6 +94,8 @@ document.onkeyup = function(event) {
         alert("You've won! The word was: " + chosenword);
         wins++;
         numberofwinstext.textContent = wins;
+        userguesstext.textContent = " ";
+        previousguessestext.textContent = " ";
         previousword.push(chosenword);
         previouswordtext.textContent = previousword + ", ";
         chosenword = wordarray[Math.floor(Math.random() * wordarray.length)];
@@ -111,6 +113,8 @@ document.onkeyup = function(event) {
         alert("You've been blown away!! The word was: " + chosenword);
         losses++;
         numberoflossestext.textContent = losses;
+        userguesstext.textContent = " ";
+        previousguessestext.textContent = " ";
         previousword.push(chosenword);
         previouswordtext.textContent = previousword + ", ";
         chosenword = wordarray[Math.floor(Math.random() * wordarray.length)];
