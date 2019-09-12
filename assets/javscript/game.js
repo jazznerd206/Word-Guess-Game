@@ -26,6 +26,7 @@ var previousguessestext = document.getElementById("previousguessestext");
 var guesseslefttext = document.getElementById("guesseslefttext");
 var numberofwinstext = document.getElementById("numberofwinstext");
 var numberoflossestext = document.getElementById("numberoflossestext");
+var previousword = document.getElementById("previouswordtext");
 
 
     //computer chooses word
@@ -37,6 +38,7 @@ var hangmanArray = new Array(chosenword.length);
 var guessesleft = chosenword.length + 5;
     guesseslefttext.textContent = guessesleft;
     //keeps track of guesses
+var previousword = new Array();
 
 //set up hangman array, using chosen word to set number of underscores
 for(var i = 0; i < chosenword.length; i++)  {
@@ -92,10 +94,14 @@ document.onkeyup = function(event) {
         alert("You've won! The word was: " + chosenword);
         wins++;
         numberofwinstext.textcontent = wins;
+        previousword.push(chosenword);
+        previouswordtext.textContent = previousword;
     }
     else if (guessesleft === 0 && hangmanArray.indexOf(("_") >= 0)) {
         alert("You've been blown away!! The word was: " + chosenword);
         losses++;
         numberoflossestext.textContent = losses;
+        previousword.push(chosenword);
+        previouswordtext.textContent = previousword;
     }
 }
