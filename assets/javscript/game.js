@@ -93,7 +93,7 @@ document.onkeyup = function(event) {
     if (guessesleft > 0 && hangmanArray.indexOf("_") === -1) {
         alert("You've won! The word was: " + chosenword);
         wins++;
-        numberofwinstext.textcontent = wins;
+        numberofwinstext.textContent = wins;
         previousword.push(chosenword);
         previouswordtext.textContent = previousword + ", ";
         chosenword = wordarray[Math.floor(Math.random() * wordarray.length)];
