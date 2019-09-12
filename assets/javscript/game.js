@@ -95,13 +95,33 @@ document.onkeyup = function(event) {
         wins++;
         numberofwinstext.textcontent = wins;
         previousword.push(chosenword);
-        previouswordtext.textContent = previousword;
+        previouswordtext.textContent = previousword + ", ";
+        chosenword = wordarray[Math.floor(Math.random() * wordarray.length)];
+            console.log(chosenword);
+        hangmanArray = new Array(chosenword.length);
+        for(var i = 0; i < chosenword.length; i++)  {
+            hangmanArray[i] = "_";
+            chosenwordtext.textContent = hangmanArray;
+        }
+        lettersguessed = new Array();
+        guessesleft = chosenword.length + 5;
+        guesseslefttext.textContent = guessesleft;
     }
     else if (guessesleft === 0 && hangmanArray.indexOf(("_") >= 0)) {
         alert("You've been blown away!! The word was: " + chosenword);
         losses++;
         numberoflossestext.textContent = losses;
         previousword.push(chosenword);
-        previouswordtext.textContent = previousword;
+        previouswordtext.textContent = previousword + ", ";
+        chosenword = wordarray[Math.floor(Math.random() * wordarray.length)];
+            console.log(chosenword);
+        hangmanArray = new Array(chosenword.length);
+        for(var i = 0; i < chosenword.length; i++)  {
+            hangmanArray[i] = "_";
+            chosenwordtext.textContent = hangmanArray;
+        }
+        lettersguessed = new Array();
+        guessesleft = chosenword.length + 5;
+        guesseslefttext.textContent = guessesleft;
     }
 }
