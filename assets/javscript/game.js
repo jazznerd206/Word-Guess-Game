@@ -21,7 +21,6 @@ var lettersguessed = new Array();
 
 var directionstext = document.getElementById("directionstext");
 var chosenwordtext = document.getElementById("chosenwordtext");
-var guessagaintext = document.getElementById("guessagaintext");
 var currentguesstext = document.getElementById("userguesstext");
 var previousguessestext = document.getElementById("previousguessestext");
 var guesseslefttext = document.getElementById("guesseslefttext");
@@ -87,5 +86,16 @@ document.onkeyup = function(event) {
     chosenwordtext.textContent = hangmanArray;
     previousguessestext.textContent = lettersguessed;
     currentguesstext.textContent = userguess;
+    }
+
+    if (guessesleft > 0 && hangmanArray.indexOf("_") === -1) {
+        alert("You've won! The word was: " + chosenword);
+        wins++;
+        numberofwinstext.textcontent = wins;
+    }
+    else if (guessesleft === 0 && hangmanArray.indexOf(("_") >= 0)) {
+        alert("You've been blown away!! The word was: " + chosenword);
+        losses++;
+        numberoflossestext.textContent = losses;
     }
 }
